@@ -197,6 +197,7 @@ export class CatalogComponent {
       ? this.products
       : this.products.filter(
           (product) =>
+            !product ||
             product.category.toLowerCase() === this.filter.toLowerCase()
         );
   }
