@@ -1,22 +1,25 @@
 <div class="container">
-  <form class="form">
+  <form class="form" (ngSubmit)="signIn()">
     <img class="logo" src="/assets/images/logo.png" />
     <div class="sign-in">Sign In</div>
     <div class="sub-text">to acquire awesome bots</div>
+    <div class="signInError" *ngIf="signInError">
+      You have entered an invalid email or password
+    </div>
     <input
       name="email"
+      [(ngModel)]="userCredentials.email"
       placeholder="Email Address"
       type="text"
     />
     <input
       name="password"
+      [(ngModel)]="userCredentials.password"
       placeholder="Password"
       type="password"
     />
     <div class="buttons">
-      <button type="submit"class="button cta">
-        Sign In
-      </button>
+      <button type="submit" class="button cta">Sign In</button>
     </div>
   </form>
 </div>
