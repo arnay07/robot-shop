@@ -237,6 +237,15 @@ app.post("/api/register", (req, res) =>
   }, 800)
 );
 
+app.get("/api/users", (req, res) => {
+  res.send(
+    Object.keys(users).map((key) => {
+      const { firstName, lastName, email } = users[key];
+      return { firstName, lastName, email };
+    })
+  );
+});
+
 /* IMPORTANT:
     The code below is for demo purposes only and does not represent good security
     practices. In a production application user credentials would be cryptographically 

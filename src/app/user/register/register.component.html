@@ -1,0 +1,76 @@
+<div class="container">
+  <form class="form" #registerForm="ngForm" (ngSubmit)="register()">
+    <img class="logo" src="/assets/images/logo.png" />
+    <div class="register">Register</div>
+    <div class="sub-text">to acquire awesome bots</div>
+    <div class="registerError" *ngIf="registerError">
+      The email address is already in use by another account
+    </div>
+    <input
+      name="firstName"
+      required
+      #firstName="ngModel"
+      [(ngModel)]="user.firstName"
+      placeholder="First Name"
+      type="text"
+    />
+    <em class="error" *ngIf="firstName.invalid && firstName.touched">
+      Please enter a first name
+    </em>
+    <input
+      name="lastName"
+      required
+      #lastName="ngModel"
+      [(ngModel)]="user.lastName"
+      placeholder="Last Name"
+      type="text"
+    />
+    <em class="error" *ngIf="lastName.invalid && lastName.touched">
+      Please enter a last name
+    </em>
+    <input
+      name="email"
+      required
+      email
+      #email="ngModel"
+      [(ngModel)]="user.email"
+      placeholder="Email Address"
+      type="text"
+    />
+    <em class="error" *ngIf="email.errors?.['required'] && email.touched">
+      Please enter an email address
+    </em>
+    <em class="error" *ngIf="email.errors?.['email'] && email.touched">
+      Please enter a valid email address
+    </em>
+
+    <input
+      name="password"
+      required
+      #password="ngModel"
+      minlength="6"
+      [(ngModel)]="user.password"
+      placeholder="Password"
+      type="password"
+    />
+    <em class="error" *ngIf="password.errors?.['required'] && password.touched">
+      Please enter a password
+    </em>
+    <em
+      class="error"
+      *ngIf="password.errors?.['minlength'] && password.touched"
+    >
+      Password must be at least 6 characters
+    </em>
+
+    <div class="buttons">
+      <button
+        type="submit"
+        [disabled]="registerForm.form.invalid"
+        class="button cta"
+      >
+        Register
+      </button>
+    </div>
+  </form>
+</div>
