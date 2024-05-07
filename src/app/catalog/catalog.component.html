@@ -40,6 +40,7 @@
   <ul class="products">
     <li class="product-item" *ngFor="let product of getFilteredProducts()">
       <bot-product-details
+        *ngIf="product"
         [product]="product"
         (addToCartEvent)="addToCart(product)"
       ></bot-product-details>

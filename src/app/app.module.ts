@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -20,7 +21,13 @@ import { UserModule } from './user/user.module';
     ProductDetailsComponent,
     CartComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, UserModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    RouterModule,
+    UserModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user/user.service';
 import { IUser } from '../user/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'bot-site-header',
@@ -11,7 +12,7 @@ export class SiteHeaderComponent implements OnInit {
   showSignOutMenu: boolean = false;
   user: IUser | null = null;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.userService.getUser().subscribe({
@@ -28,5 +29,6 @@ export class SiteHeaderComponent implements OnInit {
   signOut(): void {
     this.userService.signOut();
     this.showSignOutMenu = false;
+    this.router.navigate(['/']);
   }
 }

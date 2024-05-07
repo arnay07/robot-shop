@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { TemplateFormControlsComponent } from './template-form-controls.component';
 
@@ -8,9 +9,9 @@ describe('TemplateFormControlsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TemplateFormControlsComponent ]
-    })
-    .compileComponents();
+      declarations: [TemplateFormControlsComponent],
+      imports: [FormsModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

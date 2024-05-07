@@ -8,10 +8,20 @@ describe('ProductDetailsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ProductDetailsComponent]
+      declarations: [ProductDetailsComponent],
     });
     fixture = TestBed.createComponent(ProductDetailsComponent);
     component = fixture.componentInstance;
+    component.product = {
+      id: 1,
+      name: 'Test Product',
+      description: 'Test Description',
+      category: 'Test Category',
+      price: 100,
+      discount: 0,
+      imageName: 'test.jpg',
+    };
+
     fixture.detectChanges();
   });
 
